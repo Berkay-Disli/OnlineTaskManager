@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232964FA282D595C00F7ED26 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232964F9282D595C00F7ED26 /* SignIn.swift */; };
+		232964FF282D5BFF00F7ED26 /* TextFieldBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232964FE282D5BFF00F7ED26 /* TextFieldBox.swift */; };
+		23296501282D5F6700F7ED26 /* PasswordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296500282D5F6700F7ED26 /* PasswordBox.swift */; };
+		23296503282D60A900F7ED26 /* BigButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296502282D60A900F7ED26 /* BigButtonView.swift */; };
+		23296506282D6B7300F7ED26 /* SignInWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296505282D6B7300F7ED26 /* SignInWith.swift */; };
+		2332DA17282DA9C60084E5EC /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332DA16282DA9C60084E5EC /* Register.swift */; };
 		23C7F8A7282C67A200B44D88 /* OnlineTaskManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C7F8A6282C67A200B44D88 /* OnlineTaskManagerApp.swift */; };
 		23C7F8A9282C67A200B44D88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C7F8A8282C67A200B44D88 /* ContentView.swift */; };
 		23C7F8AB282C67A400B44D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C7F8AA282C67A400B44D88 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		232964F9282D595C00F7ED26 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		232964FE282D5BFF00F7ED26 /* TextFieldBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBox.swift; sourceTree = "<group>"; };
+		23296500282D5F6700F7ED26 /* PasswordBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordBox.swift; sourceTree = "<group>"; };
+		23296502282D60A900F7ED26 /* BigButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonView.swift; sourceTree = "<group>"; };
+		23296505282D6B7300F7ED26 /* SignInWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWith.swift; sourceTree = "<group>"; };
+		2332DA16282DA9C60084E5EC /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		23C7F8A3282C67A200B44D88 /* OnlineTaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineTaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C7F8A6282C67A200B44D88 /* OnlineTaskManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineTaskManagerApp.swift; sourceTree = "<group>"; };
 		23C7F8A8282C67A200B44D88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +44,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		232964F8282D594E00F7ED26 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				232964F9282D595C00F7ED26 /* SignIn.swift */,
+				2332DA16282DA9C60084E5EC /* Register.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		232964FB282D5BA000F7ED26 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				232964FE282D5BFF00F7ED26 /* TextFieldBox.swift */,
+				23296500282D5F6700F7ED26 /* PasswordBox.swift */,
+				23296502282D60A900F7ED26 /* BigButtonView.swift */,
+				23296505282D6B7300F7ED26 /* SignInWith.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2332DA18282DB05C0084E5EC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		23C7F89A282C67A200B44D88 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +90,9 @@
 		23C7F8A5282C67A200B44D88 /* OnlineTaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				23C7F8B6282C67EE00B44D88 /* Model */,
+				23C7F8B5282C67EA00B44D88 /* ViewModel */,
+				23C7F8B4282C67E800B44D88 /* View */,
 				23C7F8A6282C67A200B44D88 /* OnlineTaskManagerApp.swift */,
 				23C7F8A8282C67A200B44D88 /* ContentView.swift */,
 				23C7F8AA282C67A400B44D88 /* Assets.xcassets */,
@@ -65,6 +107,30 @@
 				23C7F8AD282C67A400B44D88 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23C7F8B4282C67E800B44D88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				232964FB282D5BA000F7ED26 /* Components */,
+				2332DA18282DB05C0084E5EC /* Main */,
+				232964F8282D594E00F7ED26 /* Auth */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		23C7F8B5282C67EA00B44D88 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		23C7F8B6282C67EE00B44D88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23296506282D6B7300F7ED26 /* SignInWith.swift in Sources */,
+				232964FA282D595C00F7ED26 /* SignIn.swift in Sources */,
+				23296503282D60A900F7ED26 /* BigButtonView.swift in Sources */,
 				23C7F8A9282C67A200B44D88 /* ContentView.swift in Sources */,
 				23C7F8A7282C67A200B44D88 /* OnlineTaskManagerApp.swift in Sources */,
+				232964FF282D5BFF00F7ED26 /* TextFieldBox.swift in Sources */,
+				2332DA17282DA9C60084E5EC /* Register.swift in Sources */,
+				23296501282D5F6700F7ED26 /* PasswordBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
