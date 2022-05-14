@@ -11,7 +11,9 @@ struct NewTask: View {
     @State private var taskName = ""
     @Environment(\.dismiss) var dismiss
     @State private var stepName = ""
-
+    @ObservedObject var taskViewModel: TaskViewModel
+    @ObservedObject var tabBarVM: TabNavigationViewModel
+    
     var body: some View {
         ZStack(alignment: .top) {
             LinearGradient(colors: [Color("c1"), Color("c2")], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -23,6 +25,7 @@ struct NewTask: View {
                     Text("Create a Task")
                         .font(.system(size: 30)).bold()
                         .foregroundColor(.white)
+                        .padding(.top, -20)
                     TextFieldBox(text: $taskName, placeholder: "Task Name", icon: "tag")
                 }
                 
@@ -42,8 +45,7 @@ struct NewTask: View {
                         }
                     }
                 }
-                
-                .frame(width: UIScreen.main.bounds.width * 0.8, height: 430)
+                .frame(width: UIScreen.main.bounds.width * 0.8, height: 460)
                 .background(.white)
                 .cornerRadius(20)
                 
@@ -62,13 +64,19 @@ struct NewTask: View {
             }
         })
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            tabBarVM.toggleSubmitButton()
+        }
+        .onDisappear {
+            tabBarVM.toggleSubmitButton()
+        }
     }
 }
 
 struct NewTask_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            NewTask()
+            NewTask(taskViewModel: TaskViewModel(), tabBarVM: TabNavigationViewModel())
         }
     }
 }

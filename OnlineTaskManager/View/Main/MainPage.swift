@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainPage: View {
+    @ObservedObject var tabBarVM: TabNavigationViewModel
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -26,7 +28,7 @@ struct MainPage: View {
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        NewTask()
+                        NewTask(taskViewModel: TaskViewModel(), tabBarVM: tabBarVM)
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
@@ -40,6 +42,6 @@ struct MainPage: View {
 
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        MainPage()
+        MainPage(tabBarVM: TabNavigationViewModel())
     }
 }

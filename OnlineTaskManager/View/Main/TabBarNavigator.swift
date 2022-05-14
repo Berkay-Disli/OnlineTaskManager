@@ -9,24 +9,22 @@ import SwiftUI
 
 struct TabBarNavigator: View {
     @State private var viewSelection = 0
+    @StateObject var tabBarVM = TabNavigationViewModel()
     
     var body: some View {
         ZStack {
             
-            switch viewSelection {
+            switch tabBarVM.viewSelection {
             case 0:
-                MainPage()
+                MainPage(tabBarVM: tabBarVM)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             case 1:
                 Profile()
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             default:
-                MainPage()
+                MainPage(tabBarVM: tabBarVM)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             }
-            
-            
-            
             
             
             
@@ -34,31 +32,51 @@ struct TabBarNavigator: View {
             // tab bar
             VStack {
                 Spacer()
-                HStack {
-                    Spacer()
-                    Button {
-                        viewSelection = 0
-                    } label: {
-                        Image(systemName: "house")
-                            .font(.title)
-                            .foregroundColor(viewSelection == 0 ? Color("c1"):.gray)
+                if !tabBarVM.submitButton {
+                    HStack {
+                        Spacer()
+                        Button {
+                            tabBarVM.setHomeView()
+                        } label: {
+                            Image(systemName: "house")
+                                .font(.title)
+                                .foregroundColor(viewSelection == 0 ? Color("c1"):.gray)
+                        }
+                        Spacer()
+                        Button {
+                            tabBarVM.setProfileView()
+                        } label: {
+                            Image(systemName: "person")
+                                .font(.title)
+                                .foregroundColor(viewSelection == 1 ? Color("c1"):.gray)
+                                
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                    Button {
-                        viewSelection = 1
-                    } label: {
-                        Image(systemName: "person")
-                            .font(.title)
-                            .foregroundColor(viewSelection == 1 ? Color("c1"):.gray)
-                            
+                    .frame(width: UIScreen.main.bounds.width * 0.6, height: 55)
+                    .background(.white)
+                    .cornerRadius(100)
+                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
+                } else {
+                    // animasyon ekle, renk değiştir, tek buton büyük buton olabilir.
+                    // geri dönüşte delay var. belki newTaskte ondisappear yerine bu viewda onappear yapabilirsin.
+                    HStack {
+                        Spacer()
+                        Button {
+                            tabBarVM.setHomeView()
+                        } label: {
+                            Image(systemName: "house")
+                                .font(.title)
+                                .foregroundColor(viewSelection == 0 ? Color("c1"):.gray)
+                        }
+                        
+                        Spacer()
                     }
-
-                    Spacer()
+                    .frame(width: UIScreen.main.bounds.width * 0.6, height: 55)
+                    .background(.white)
+                    .cornerRadius(100)
+                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.6, height: 55)
-                .background(.white)
-                .cornerRadius(100)
-                .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
             }
             
         }
