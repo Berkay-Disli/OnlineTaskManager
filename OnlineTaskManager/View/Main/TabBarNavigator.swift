@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarNavigator: View {
-    @State private var viewSelection = 0
+    
     @StateObject var tabBarVM = TabNavigationViewModel()
     
     var body: some View {
@@ -40,7 +40,7 @@ struct TabBarNavigator: View {
                         } label: {
                             Image(systemName: "house")
                                 .font(.title)
-                                .foregroundColor(viewSelection == 0 ? Color("c1"):.gray)
+                                .foregroundColor(tabBarVM.viewSelection == 0 ? Color("c1"):.gray)
                         }
                         Spacer()
                         Button {
@@ -48,7 +48,7 @@ struct TabBarNavigator: View {
                         } label: {
                             Image(systemName: "person")
                                 .font(.title)
-                                .foregroundColor(viewSelection == 1 ? Color("c1"):.gray)
+                                .foregroundColor(tabBarVM.viewSelection == 1 ? Color("c1"):.gray)
                                 
                         }
                         Spacer()
@@ -57,25 +57,7 @@ struct TabBarNavigator: View {
                     .background(.white)
                     .cornerRadius(100)
                     .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
-                } else {
-                    // animasyon ekle, renk değiştir, tek buton büyük buton olabilir.
-                    // geri dönüşte delay var. belki newTaskte ondisappear yerine bu viewda onappear yapabilirsin.
-                    HStack {
-                        Spacer()
-                        Button {
-                            tabBarVM.setHomeView()
-                        } label: {
-                            Image(systemName: "house")
-                                .font(.title)
-                                .foregroundColor(viewSelection == 0 ? Color("c1"):.gray)
-                        }
-                        
-                        Spacer()
-                    }
-                    .frame(width: UIScreen.main.bounds.width * 0.6, height: 55)
-                    .background(.white)
-                    .cornerRadius(100)
-                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
+                    .transition(AnyTransition.scale.animation(.easeInOut(duration: 0.3)))
                 }
             }
             

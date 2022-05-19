@@ -13,6 +13,7 @@ struct NewTask: View {
     @State private var stepName = ""
     @ObservedObject var taskViewModel: TaskViewModel
     @ObservedObject var tabBarVM: TabNavigationViewModel
+    @State private var showUserSheet = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -33,19 +34,33 @@ struct NewTask: View {
                 addStep
                     .padding(.vertical)
                 
-                // show tasks
+                // select users
+                Button {
+                    showUserSheet.toggle()
+                } label: {
+                    Text("Select Users")
+                        .bold().foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width * 0.80, height: 50)
+                        .background(.white)
+                        .cornerRadius(100)
+                        .padding(.bottom)
+                }
+
                 
+                
+                // show tasks
                 ScrollView {
                     Text("All Steps")
                         .font(.headline)
                         .padding(.top)
                     LazyVStack {
-                        ForEach(1...14, id: \.self) { step in
-                            TaskStepItem(stepName: "Something to do")
+                        ForEach(taskViewModel.steps) { step in
+                            TaskStepItem(stepName: step.stepName)
+                                .transition(AnyTransition.scale.animation(.easeInOut))
                         }
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.8, height: 460)
+                .frame(width: UIScreen.main.bounds.width * 0.8, height: 400)
                 .background(.white)
                 .cornerRadius(20)
                 
@@ -53,23 +68,38 @@ struct NewTask: View {
                     
             }
         }
+        .sheet(isPresented: $showUserSheet, content: {
+            SelectUsers()
+        })
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
+                    tabBarVM.toggleSubmitButton()
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)
                 }
             }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    taskViewModel.createTask(taskName: taskName, creator: "User1", members: ["User2, User3"])
+                    tabBarVM.toggleSubmitButton()
+                    dismiss()
+                } label: {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.white)
+                }
+
+            }
         })
         .navigationBarBackButtonHidden(true)
         .onAppear {
             tabBarVM.toggleSubmitButton()
         }
-        .onDisappear {
-            tabBarVM.toggleSubmitButton()
-        }
+        
+        
     }
 }
 
@@ -99,7 +129,8 @@ extension NewTask {
             
             if stepName.count >= 5 {
                 Button {
-                    // add step to task list
+                    taskViewModel.createStep(name: stepName)
+                    stepName = ""
                 } label: {
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)

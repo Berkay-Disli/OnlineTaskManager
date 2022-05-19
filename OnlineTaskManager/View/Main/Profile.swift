@@ -9,12 +9,26 @@ import SwiftUI
 
 struct Profile: View {
     var body: some View {
-        Text("Profile View")
+        VStack {
+            List {
+                Section("Authentication") {
+                    Button {
+                        // log out
+                    } label: {
+                        Text("Log out")
+                    }
+
+                }
+            }
+        }
+        .navigationTitle("Profile")
     }
 }
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        Profile()
+        NavigationView {
+            Profile()
+        }
     }
 }

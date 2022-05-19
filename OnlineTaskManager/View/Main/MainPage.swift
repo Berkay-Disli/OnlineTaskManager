@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainPage: View {
     @ObservedObject var tabBarVM: TabNavigationViewModel
+    @StateObject var taskVM = TaskViewModel()
     
     var body: some View {
         NavigationView {
@@ -23,12 +24,11 @@ struct MainPage: View {
                     }
                 }
             }
-
             .navigationTitle("My Tasks")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        NewTask(taskViewModel: TaskViewModel(), tabBarVM: tabBarVM)
+                        NewTask(taskViewModel: taskVM, tabBarVM: tabBarVM)
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
