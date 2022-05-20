@@ -10,6 +10,8 @@ import SwiftUI
 struct SignIn: View {
     @State private var email = ""
     @State private var passwordText = ""
+    @EnvironmentObject var authVM: AuthViewModel
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -77,8 +79,14 @@ extension SignIn {
             
             PasswordBox(passwordText: $passwordText)
                 .padding(.bottom, 20)
-            BigButtonView(text: "Sign In", color: Color("btn1"))
-                .padding()
+            
+            Button {
+                authVM.signInUser(email: email, password: passwordText)
+            } label: {
+                BigButtonView(text: "Sign In", color: Color("btn1"))
+                    .padding()
+            }
+
             
             Text("Forgot Password?")
                 .font(.callout).bold()

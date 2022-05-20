@@ -19,6 +19,7 @@ struct OnlineTaskManagerApp: App {
         
         WindowGroup {
             ContentView()
+                .environmentObject(AuthViewModel())
         }
     }
 }

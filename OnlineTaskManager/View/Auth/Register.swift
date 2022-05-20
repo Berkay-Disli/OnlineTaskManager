@@ -13,6 +13,8 @@ struct Register: View {
     @State private var passwordText = ""
     @Environment(\.dismiss) var dismiss
     @State private var isLeader = false
+    @EnvironmentObject var authVM: AuthViewModel
+
     var body: some View {
         VStack(spacing: 0) {
             //header
@@ -84,16 +86,19 @@ extension Register {
             HStack {
                 Text("Team Lead")
                     .bold()
-                    
-                
                 Toggle(isOn: $isLeader ) {}.labelsHidden()
                     .padding(.horizontal)
             }
             .padding(.horizontal)
             .frame(width: UIScreen.main.bounds.width * 0.80, height: 50)
             
-            BigButtonView(text: "Sign Up", color: Color("btn1"))
-                .padding()
+            Button {
+                authVM.registerUser(email: email, password: passwordText, name: name)
+            } label: {
+                BigButtonView(text: "Sign Up", color: Color("btn1"))
+                    .padding()
+            }
+
             
             
             

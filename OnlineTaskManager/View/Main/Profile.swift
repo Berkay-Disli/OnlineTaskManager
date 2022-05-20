@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct Profile: View {
+    @EnvironmentObject var authVM: AuthViewModel
+    
     var body: some View {
         VStack {
             List {
                 Section("Authentication") {
                     Button {
-                        // log out
+                        authVM.signOut()
                     } label: {
                         Text("Log out")
                     }

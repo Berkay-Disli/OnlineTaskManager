@@ -14,6 +14,7 @@ struct NewTask: View {
     @ObservedObject var taskViewModel: TaskViewModel
     @ObservedObject var tabBarVM: TabNavigationViewModel
     @State private var showUserSheet = false
+    @EnvironmentObject var authVM: AuthViewModel
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -84,7 +85,7 @@ struct NewTask: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    taskViewModel.createTask(taskName: taskName, creator: "User1", members: ["User2, User3"])
+                    taskViewModel.createTask(taskName: taskName, creator: authVM.userSession?.uid ?? "0", members: ["User2, User3"])
                     tabBarVM.toggleSubmitButton()
                     dismiss()
                 } label: {

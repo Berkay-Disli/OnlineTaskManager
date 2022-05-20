@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import Firebase
 
 class TaskViewModel: ObservableObject {
     @Published var tasks = [Task]()
     @Published var steps = [TaskStep]()
+    
+    // firestore
+    private var stepArray = [String]()
     
     init() {
         
@@ -19,10 +23,24 @@ class TaskViewModel: ObservableObject {
     func createTask(taskName: String, creator: String, members: [String]) {
         let taskToCreate = Task(name: taskName, creator: creator, members: members, steps: steps)
         tasks.append(taskToCreate)
+        
+        // Firestore
+        let data: [String:Any] = ["steps": stepArray, "creator": creator, "assigned_to": members]
+        
+        Firestore.firestore().collection("tasks").document(taskToCreate.id).setData(data) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("SUCCESS: \(data)")
+            }
+        }
     }
     
     func createStep(name: String) {
         let stepToAdd = TaskStep(stepName: name)
         steps.append(stepToAdd)
+        
+        //firestore
+        stepArray.append(stepToAdd.stepName)
     }
 }
