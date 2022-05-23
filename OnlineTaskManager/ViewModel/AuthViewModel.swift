@@ -12,6 +12,8 @@ class AuthViewModel: ObservableObject {
     
     @Published var userSession: User?
     @Published var allUsers = [String]()
+    @Published var selectedUsers = [String]()
+    
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -68,6 +70,9 @@ class AuthViewModel: ObservableObject {
     
     // give all users
     func getAllUsers() {
+        allUsers.removeAll(keepingCapacity: false)
+        
+        
         Firestore.firestore().collection("users").getDocuments { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -75,10 +80,31 @@ class AuthViewModel: ObservableObject {
             } else {
                 guard let snapshot = snapshot else { return }
                 for document in snapshot.documents {
-                    self.allUsers.append(document.documentID)
+                    if let name = document.get("name") as? String {
+                        self.allUsers.append(name)
+                    } else {
+                        print("Error! Could not get value of name as String.")
+                    }
+                    
                 }
-
             }
         }
     }
+    
+    func selectUsers(name: String) {
+        //temp listeye at, onay verince ana listeye at yapılabilir.
+        
+        if !selectedUsers.contains(name) {
+            selectedUsers.append(name)
+        } else {
+            selectedUsers = selectedUsers.filter { $0 != name }
+        }
+    }
+    
+    func clearSelectedUsers() {
+        selectedUsers.removeAll(keepingCapacity: false)
+    }
+    
+    
 }
+

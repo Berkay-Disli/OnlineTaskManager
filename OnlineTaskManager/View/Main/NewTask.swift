@@ -37,6 +37,7 @@ struct NewTask: View {
                 
                 // select users
                 Button {
+                    authVM.getAllUsers()
                     showUserSheet.toggle()
                 } label: {
                     Text("Select Users")
