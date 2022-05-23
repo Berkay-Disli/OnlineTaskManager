@@ -11,26 +11,38 @@ struct Profile: View {
     @EnvironmentObject var authVM: AuthViewModel
     
     var body: some View {
-        VStack {
-            List {
-                Section("Authentication") {
+        NavigationView {
+            VStack {
+                List {
                     Button {
                         authVM.signOut()
                     } label: {
-                        Text("Log out")
+                        HStack(spacing: 10) {
+                            Image(systemName: "person")
+                                .foregroundColor(.white)
+                                .frame(width: 23, height: 23)
+                                .background(.red)
+                                .cornerRadius(5)
+                            Text("Log out")
+                                .bold()
+                        }
                     }
-
                 }
             }
+            .onAppear(perform: {
+                authVM.getCurrentUserName()
+            })
+            .navigationTitle(authVM.userName)
+            .navigationBarHidden(false)
+        .navigationBarBackButtonHidden(true)
         }
-        .navigationTitle("Profile")
     }
 }
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
             Profile()
-        }
+                .environmentObject(AuthViewModel())
+        
     }
 }

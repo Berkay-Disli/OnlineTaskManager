@@ -13,7 +13,7 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: User?
     @Published var allUsers = [String]()
     @Published var selectedUsers = [String]()
-    
+    @Published var userName = ""
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -65,6 +65,23 @@ class AuthViewModel: ObservableObject {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func getCurrentUserName() {
+        guard let uid = userSession?.uid else { return }
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                guard let snapshot = snapshot else { return }
+                if let username = snapshot.get("name") as? String {
+                    self.userName = username
+                } else {
+                    print("error")
+                }
+            }
+        }
+        
     }
     
     

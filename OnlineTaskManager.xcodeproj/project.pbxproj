@@ -32,6 +32,7 @@
 		23DAA5E3282FFBCC00C219E4 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAA5E2282FFBCC00C219E4 /* TaskModel.swift */; };
 		23DAA5E5282FFC8900C219E4 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAA5E4282FFC8900C219E4 /* TaskViewModel.swift */; };
 		23DAA5E7282FFFB300C219E4 /* TabNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAA5E6282FFFB300C219E4 /* TabNavigationViewModel.swift */; };
+		23EA50C8283C3D92008DC259 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EA50C7283C3D92008DC259 /* img.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		23DAA5E2282FFBCC00C219E4 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		23DAA5E4282FFC8900C219E4 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		23DAA5E6282FFFB300C219E4 /* TabNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationViewModel.swift; sourceTree = "<group>"; };
+		23EA50C7283C3D92008DC259 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		23C7F89A282C67A200B44D88 = {
 			isa = PBXGroup;
 			children = (
+				23EA50C6283C3D7C008DC259 /* images */,
 				23C7F8A5282C67A200B44D88 /* OnlineTaskManager */,
 				23C7F8A4282C67A200B44D88 /* Products */,
 			);
@@ -173,6 +176,14 @@
 				23DAA5E2282FFBCC00C219E4 /* TaskModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		23EA50C6283C3D7C008DC259 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				23EA50C7283C3D92008DC259 /* img.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				23C7F8AE282C67A400B44D88 /* Preview Assets.xcassets in Resources */,
 				23C7F8AB282C67A400B44D88 /* Assets.xcassets in Resources */,
 				239904C628365B29006EE088 /* GoogleService-Info.plist in Resources */,
+				23EA50C8283C3D92008DC259 /* img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
