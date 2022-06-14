@@ -13,7 +13,7 @@ This app is designed for development teams to:
 - **Firebase** for Authentication and Database
 - **Authentication, Task and Navigation** View Models
 - **Sign In - Sign Up - Log Out** Cycle
-- Task Step and User Assignment Functions from Database Functions 
+- Task Step and User Assignment Functions from Database Faqunctions 
 - Custom Navigation Tab Bar with Scale In-Out Transitions
 - View Components for Repeated Use
 - Beautiful Animations and Smooth Transitions

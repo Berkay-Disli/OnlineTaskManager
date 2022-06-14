@@ -12,6 +12,7 @@
 		23296501282D5F6700F7ED26 /* PasswordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296500282D5F6700F7ED26 /* PasswordBox.swift */; };
 		23296503282D60A900F7ED26 /* BigButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296502282D60A900F7ED26 /* BigButtonView.swift */; };
 		23296506282D6B7300F7ED26 /* SignInWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23296505282D6B7300F7ED26 /* SignInWith.swift */; };
+		232C301928589FE300E22FBE /* MyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C301828589FE300E22FBE /* MyTasks.swift */; };
 		2332DA17282DA9C60084E5EC /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332DA16282DA9C60084E5EC /* Register.swift */; };
 		2332DA1A282DB5B10084E5EC /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332DA19282DB5B10084E5EC /* MainPage.swift */; };
 		234FE35F282E6BB3008C97DF /* MenuTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FE35E282E6BB3008C97DF /* MenuTaskItem.swift */; };
@@ -41,6 +42,7 @@
 		23296500282D5F6700F7ED26 /* PasswordBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordBox.swift; sourceTree = "<group>"; };
 		23296502282D60A900F7ED26 /* BigButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonView.swift; sourceTree = "<group>"; };
 		23296505282D6B7300F7ED26 /* SignInWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWith.swift; sourceTree = "<group>"; };
+		232C301828589FE300E22FBE /* MyTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasks.swift; sourceTree = "<group>"; };
 		2332DA16282DA9C60084E5EC /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		2332DA19282DB5B10084E5EC /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		234FE35E282E6BB3008C97DF /* MenuTaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTaskItem.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				234FE364282E798B008C97DF /* Profile.swift */,
 				234FE360282E6ED4008C97DF /* NewTask.swift */,
 				23A1EE722831195400125E93 /* SelectUsers.swift */,
+				232C301828589FE300E22FBE /* MyTasks.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				234FE35F282E6BB3008C97DF /* MenuTaskItem.swift in Sources */,
 				23C7F8A9282C67A200B44D88 /* ContentView.swift in Sources */,
 				23C7F8A7282C67A200B44D88 /* OnlineTaskManagerApp.swift in Sources */,
+				232C301928589FE300E22FBE /* MyTasks.swift in Sources */,
 				232964FF282D5BFF00F7ED26 /* TextFieldBox.swift in Sources */,
 				2332DA17282DA9C60084E5EC /* Register.swift in Sources */,
 				23DAA5E3282FFBCC00C219E4 /* TaskModel.swift in Sources */,

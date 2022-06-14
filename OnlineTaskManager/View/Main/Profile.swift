@@ -14,6 +14,22 @@ struct Profile: View {
         NavigationView {
             VStack {
                 List {
+                    
+                    NavigationLink {
+                        MyTasks()
+                    } label: {
+                        HStack(spacing: 10) {
+                            Image(systemName: "pencil")
+                                .foregroundColor(.white)
+                                .frame(width: 23, height: 23)
+                                .background(.green)
+                                .cornerRadius(5)
+                            Text("My Tasks")
+                                .bold()
+                        }
+                    }
+
+                    
                     Button {
                         authVM.signOut()
                     } label: {
